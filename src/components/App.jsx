@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TitleBar from './TitleBar/TitleBar';
 import SearchBar from './SearchBar/SearchBar';
+import VideoPlayer from './VideoPlayer/VideoPlayer';
 
 
 class App extends Component {
@@ -14,6 +15,7 @@ class App extends Component {
         return (
             <div className="container-fluid">
                 <TitleBar />
+                <VideoPlayer />
                 <SearchBar />
             </div>
         )
