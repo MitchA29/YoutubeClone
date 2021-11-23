@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import TitleBar from './TitleBar/TitleBar';
 import SearchBar from './SearchBar/SearchBar';
-<<<<<<< HEAD
 import VideoPlayer from './VideoPlayer/VideoPlayer';
-=======
 import axios from 'axios';
->>>>>>> 8456ea45341fe7d9435911bfa9d61598b6dcf662
 
 
 class App extends Component {
@@ -28,12 +25,8 @@ class App extends Component {
         return (
             <div className="container-fluid">
                 <TitleBar />
-<<<<<<< HEAD
                 <VideoPlayer />
-                <SearchBar />
-=======
                 <SearchBar getVideoList={this.getVideoList}/>
->>>>>>> 8456ea45341fe7d9435911bfa9d61598b6dcf662
             </div>
         )
     }
