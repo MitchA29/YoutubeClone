@@ -2,11 +2,24 @@
     background-color: rgb(214, 65, 65);
     width: 100%;
     color: #fff;
+    vertical-align: center;
+    display: inline-flex;
 }
 
+.logo {
+    text-align: left;
+    display: inline-flex;
+    padding-left: 10px;
+}
 
+.menu {
+    text-align: right;
+    display: right;
+    padding-left: 96em;
+}
 
 h1 {
-    padding-bottom: 0.2em;
+    vertical-align: center;
+    padding-top: 5px;
     padding-right: 1em;
 }
