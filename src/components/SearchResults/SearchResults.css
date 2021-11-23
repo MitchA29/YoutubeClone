@@ -1,0 +1,7 @@
+.relatedVideoTitle {
+    max-width: 320px;
+}
+
+.relatedVideos {
+    display: inline-flex;
+}
