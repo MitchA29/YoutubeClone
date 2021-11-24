@@ -2,6 +2,15 @@
     max-width: 320px;
 }
 
-.relatedVideos {
+.relatedVideo {
+    padding-left: 1em;
+}
+
+.allRelatedVideos {
     display: inline-flex;
+    max-width: 1280px;
+}
+
+.btn btn-danger {
+    text-align: center;
 }

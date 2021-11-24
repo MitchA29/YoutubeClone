@@ -8,7 +8,7 @@ function Comments(props){
             <div className="userComment">
                 <h1>Comments</h1>
                 <form action="/html/tags/html_form_tag_action.cfm" method="post">
-                <div>
+                <div class="commentBox">
                     <textarea name="comments" id="comments">
                     Your Comment Here
                     </textarea>

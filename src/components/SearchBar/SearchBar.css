@@ -2,3 +2,6 @@
     height: 20px;
     display: inline-flex;
 }
+.searchField {
+    text-align: center;
+}

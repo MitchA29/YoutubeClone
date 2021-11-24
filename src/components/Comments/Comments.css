@@ -1,0 +1,13 @@
+.commentBox {
+    display: inline-flex;
+
+}
+
+textarea {
+    width: 20em;
+    height: 2em;
+}
+
+.btn btn-danger {
+    height: 2em;
+}
