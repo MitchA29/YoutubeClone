@@ -5,10 +5,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 const VideoPlayer = (props) => {
 
-    let defaultVideoId = 'M7lc1UVf-VE';
-    const[videoId, setVideoId] = useState(defaultVideoId);
+    const[videoId, setVideoId] = useState(props.videoId);
 
-    if (props.videoId !== "" & videoId !== props.videoId){
+    if (videoId !== props.videoId){
         setVideoId(props.videoId);
     }
 
