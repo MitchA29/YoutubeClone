@@ -14,6 +14,7 @@ class App extends Component {
         this.state = {
             videos: []
     }
+        this.videoId = ""
 }
     getVideoList = async (searchFor) => {
         let response = await axios.get('https://www.googleapis.com/youtube/v3/search?key=AIzaSyAUFW6W2O6Mqz3liLuFKlGvg4H4ITggyGA&kind="video"&part=snippet&maxResults=5&q=' + (searchFor))
@@ -22,13 +23,21 @@ class App extends Component {
             videos: response.data.items
         })
     }
+
+    getVideoId = (videoId) => {
+        this.videoId = videoId;
+        console.log(this.videoId);
+
+        this.setState({});
+    }
+
     render(){
         return (
             <div className="container-fluid">
                 <TitleBar />
                 <div className="videoCommentsRecommended">
                     <div className="videoComments">
-                        <VideoPlayer /> 
+                        <VideoPlayer videoId={this.videoId}/> 
                         <Comments />
                     </div>
                     <div className="recommended">
@@ -36,7 +45,7 @@ class App extends Component {
                     </div>
                 </div>
                 <SearchBar getVideoList={this.getVideoList}/>
-                <SearchResults videos={this.state.videos}/>
+                <SearchResults videos={this.state.videos} getVideoId={this.getVideoId}/>
             </div>
         )
     }

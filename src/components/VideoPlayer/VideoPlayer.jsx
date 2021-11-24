@@ -1,8 +1,17 @@
 import React from "react";
+import { useState } from "react";
 import "./VideoPlayer.css"
 import 'bootstrap/dist/css/bootstrap.css';
 
-function VideoPlayer(props){
+const VideoPlayer = (props) => {
+
+    let defaultVideoId = 'M7lc1UVf-VE';
+    const[videoId, setVideoId] = useState(defaultVideoId);
+
+    if (props.videoId !== "" & videoId !== props.videoId){
+        setVideoId(props.videoId);
+    }
+
     return (
         
         <div class="videoPlayer">
