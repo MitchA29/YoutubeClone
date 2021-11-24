@@ -12,23 +12,36 @@ class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            videos: []
+            resultVideos: [],
+            relatedVideos:[]
+
     }
-        this.videoId = ""
+        this.videoId = "";
+        this.videoTitle = ""
 }
-    getVideoList = async (searchFor) => {
+    getResultVideoList = async (searchFor) => {
         let response = await axios.get('https://www.googleapis.com/youtube/v3/search?key=AIzaSyAUFW6W2O6Mqz3liLuFKlGvg4H4ITggyGA&kind="video"&part=snippet&maxResults=5&q=' + (searchFor))
         console.log(response.data.items)
         this.setState({
-            videos: response.data.items
+            resultVideos: response.data.items
         })
     }
 
-    getVideoId = (videoId) => {
-        this.videoId = videoId;
-        console.log(this.videoId);
+    getRelatedVideoList = async (videoTitle) => {
+        let response = await axios.get('https://www.googleapis.com/youtube/v3/search?key=AIzaSyAUFW6W2O6Mqz3liLuFKlGvg4H4ITggyGA&kind="video"&part=snippet&maxResults=5&q=' + (videoTitle))
+        console.log(response.data.items)
+        this.setState({
+            relatedVideos: response.data.items
+        })
+    }
 
-        this.setState({});
+    getVideoIdTitle = (videoId, videoTitle) => {
+        this.videoId = videoId;
+        this.videoTitle = videoTitle;
+        console.log(this.videoId);
+        this.setState({
+            resultVideos: []
+        });
     }
 
     render(){
@@ -41,11 +54,12 @@ class App extends Component {
                         <Comments />
                     </div>
                     <div className="recommended">
-                        <RecommendedVideos />
+                        <RecommendedVideos videos={this.state.relatedVideos} videoId={this.videoId}/>
                     </div>
                 </div>
-                <SearchBar getVideoList={this.getVideoList}/>
-                <SearchResults videos={this.state.videos} getVideoId={this.getVideoId}/>
+                <SearchBar getVideoList={this.getResultVideoList}/>
+                <SearchResults videos={this.state.resultVideos} getRelatedVideoList={this.getRelatedVideoList}
+                    getVideoIdTitle={this.getVideoIdTitle}/>
             </div>
         )
     }
