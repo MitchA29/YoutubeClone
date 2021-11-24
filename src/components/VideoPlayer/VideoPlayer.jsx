@@ -1,13 +1,22 @@
 import React from "react";
+import { useState } from "react";
 import "./VideoPlayer.css"
 import 'bootstrap/dist/css/bootstrap.css';
 
-function VideoPlayer(props){
+const VideoPlayer = (props) => {
+
+    let defaultVideoId = 'M7lc1UVf-VE';
+    const[videoId, setVideoId] = useState(defaultVideoId);
+
+    if (props.videoId !== "" & videoId !== props.videoId){
+        setVideoId(props.videoId);
+    }
+
     return (
         <div class="videoPlayer">
             <div class="video">
             <iframe id="ytplayer" type="text/html" width="1179" height="663" 
-            src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"
+            src={"https://www.youtube.com/embed/"+(videoId)+"?autoplay=1"}
             frameborder="0"  ></iframe>
             </div>
             <div class="videoInfo">
