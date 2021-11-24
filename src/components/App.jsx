@@ -14,10 +14,9 @@ class App extends Component {
         this.state = {
             resultVideos: [],
             relatedVideos:[]
-
     }
         this.videoId = "";
-        this.videoTitle = ""
+        this.videoTitle = "YouTube Developers Live: Embedded Web Player Customization"
 }
     getResultVideoList = async (searchFor) => {
         let response = await axios.get('https://www.googleapis.com/youtube/v3/search?key=AIzaSyAUFW6W2O6Mqz3liLuFKlGvg4H4ITggyGA&kind="video"&part=snippet&maxResults=5&q=' + (searchFor))
@@ -50,7 +49,7 @@ class App extends Component {
                 <TitleBar />
                 <div className="videoCommentsRecommended">
                     <div className="videoComments">
-                        <VideoPlayer videoId={this.videoId}/> 
+                        <VideoPlayer videoId={this.videoId} videoTitle={this.videoTitle}/> 
                         <Comments />
                     </div>
                     <div className="recommended">

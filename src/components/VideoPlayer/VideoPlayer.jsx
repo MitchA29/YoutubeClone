@@ -22,7 +22,7 @@ const VideoPlayer = (props) => {
             </div>
             <div class="videoInfo">
                 <div class="videoTitle">
-                    <h1>Title Here</h1>
+                    <h1>{props.videoTitle}</h1>
                 </div>
                 <div class="videoViews">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
