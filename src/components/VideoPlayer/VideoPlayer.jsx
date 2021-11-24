@@ -13,11 +13,12 @@ const VideoPlayer = (props) => {
     }
 
     return (
+        
         <div class="videoPlayer">
             <div class="video">
             <iframe id="ytplayer" type="text/html" width="1179" height="663" 
             src={"https://www.youtube.com/embed/"+(videoId)+"?autoplay=1"}
-            frameborder="0"  ></iframe>
+            frameborder="0"></iframe>
             </div>
             <div class="videoInfo">
                 <div class="videoTitle">
