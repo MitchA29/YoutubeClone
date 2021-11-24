@@ -4,11 +4,12 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 function VideoPlayer(props){
     return (
+        
         <div class="videoPlayer">
             <div class="video">
             <iframe id="ytplayer" type="text/html" width="1179" height="663" 
-            src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"
-            frameborder="0"  ></iframe>
+            src={"https://www.youtube.com/embed/"+(videoId)+"?autoplay=1"}
+            frameborder="0"></iframe>
             </div>
             <div class="videoInfo">
                 <div class="videoTitle">
