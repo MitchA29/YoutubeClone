@@ -5,6 +5,8 @@ import VideoPlayer from './VideoPlayer/VideoPlayer';
 import Comments from './Comments/Comments';
 import axios from 'axios';
 import SearchResults from './SearchResults/SearchResults';
+import RecommendedVideos from './RecommendedVideos/RecommendedVideos';
+import "./App.css";
 
 class App extends Component {
     constructor(props){
@@ -24,8 +26,15 @@ class App extends Component {
         return (
             <div className="container-fluid">
                 <TitleBar />
-                <VideoPlayer />
-                <Comments />
+                <div className="videoCommentsRecommended">
+                    <div className="videoComments">
+                        <VideoPlayer /> 
+                        <Comments />
+                    </div>
+                    <div className="recommended">
+                        <RecommendedVideos />
+                    </div>
+                </div>
                 <SearchBar getVideoList={this.getVideoList}/>
                 <SearchResults videos={this.state.videos}/>
             </div>
