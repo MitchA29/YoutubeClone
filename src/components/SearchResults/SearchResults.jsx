@@ -8,7 +8,7 @@ const SearchResults = (props) => {
                 {props.videos.map(videos => (
                     <span>
                         <div class="relatedVideo">
-                        <img src={videos.snippet.thumbnails.medium.url}
+                        <img src={videos.snippet.thumbnails.medium.url} 
                             width={videos.snippet.thumbnails.medium.width}
                             height={videos.snippet.thumbnails.medium.height} />
                             <div class="relatedVideoTitle">
@@ -16,9 +16,8 @@ const SearchResults = (props) => {
                             </div>
                         </div>
                     </span>
-                ))};
+                ))}
             </div>
-            <button type="button" class="btn btn-danger">Show More</button>
         </div> 
     );
 }

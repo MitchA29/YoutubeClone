@@ -14,7 +14,7 @@ class App extends Component {
     }
 }
     getVideoList = async (searchFor) => {
-        let response = await axios.get('https://www.googleapis.com/youtube/v3/search?key=AIzaSyAUFW6W2O6Mqz3liLuFKlGvg4H4ITggyGA&kind="video"&part=snippet&maxResults=8&q=' + (searchFor))
+        let response = await axios.get('https://www.googleapis.com/youtube/v3/search?key=AIzaSyAUFW6W2O6Mqz3liLuFKlGvg4H4ITggyGA&kind="video"&part=snippet&maxResults=5&q=' + (searchFor))
         console.log(response.data.items)
         this.setState({
             videos: response.data.items
