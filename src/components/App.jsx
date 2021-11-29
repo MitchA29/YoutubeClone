@@ -17,6 +17,7 @@ class App extends Component {
     }
         this.videoId = "M7lc1UVf-VE";
         this.videoTitle = "YouTube Developers Live: Embedded Web Player Customization"
+        this.videoDescription = "Default Video"
 }
     getResultVideoList = async (searchFor) => {
         let response = await axios.get('https://www.googleapis.com/youtube/v3/search?key=AIzaSyAUFW6W2O6Mqz3liLuFKlGvg4H4ITggyGA&kind="video"&part=snippet&maxResults=5&q=' + (searchFor))
@@ -34,9 +35,10 @@ class App extends Component {
         })
     }
 
-    getVideoIdTitle = (videoId, videoTitle) => {
+    getVideoInfo = (videoId, videoTitle, videoDescription) => {
         this.videoId = videoId;
         this.videoTitle = videoTitle;
+        this.videoDescription = videoDescription;
         console.log(this.videoId);
         this.setState({
             resultVideos: []
@@ -49,16 +51,16 @@ class App extends Component {
                 <TitleBar />
                 <div className="videoCommentsRecommended">
                     <div className="videoComments">
-                        <VideoPlayer videoId={this.videoId} videoTitle={this.videoTitle}/> 
+                        <VideoPlayer videoId={this.videoId} videoTitle={this.videoTitle} videoDescription={this.videoDescription}/> 
                         <Comments />
                     </div>
                     <div className="recommended">
-                        <RecommendedVideos videos={this.state.relatedVideos} videoId={this.videoId}/>
+                        <RecommendedVideos videos={this.state.relatedVideos} videoId={this.videoId} getVideoInfo={this.getVideoInfo}/>
                     </div>
                 </div>
                 <SearchBar getVideoList={this.getResultVideoList}/>
                 <SearchResults videos={this.state.resultVideos} getRelatedVideoList={this.getRelatedVideoList}
-                    getVideoIdTitle={this.getVideoIdTitle}/>
+                    getVideoInfo={this.getVideoInfo}/>
             </div>
         )
     }
