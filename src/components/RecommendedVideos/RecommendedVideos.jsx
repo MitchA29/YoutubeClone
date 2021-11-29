@@ -6,6 +6,7 @@ const RecommendedVideos = (props) => {
     const handleClick = (event, id, title, description) => {
         event.preventDefault()
         props.getVideoInfo(id, title, description)
+        props.getVideoComments()
     }
     
     return (

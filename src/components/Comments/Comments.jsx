@@ -2,11 +2,17 @@ import React from "react";
 import "./Comments.css"
 import 'bootstrap/dist/css/bootstrap.css';
 
-function Comments(props){
+const Comments = (props) => {
+
     return (
         <div className="commentSection">
             <div className="userComment">
                 <h1>Comments</h1>
+                    {props.commentDetails.map(comments => (
+                        <div>
+                            {comments.comment_content}
+                        </div>
+                    ))}
                 <form action="/html/tags/html_form_tag_action.cfm" method="post">
                 <div class="commentBox">
                     <textarea name="comments" id="comments">

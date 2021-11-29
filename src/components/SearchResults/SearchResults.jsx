@@ -7,6 +7,7 @@ const SearchResults = (props) => {
         event.preventDefault();
         props.getVideoInfo(id, title, description);
         props.getRelatedVideoList(title);
+        props.getVideoComments()
     }
 
     return (
