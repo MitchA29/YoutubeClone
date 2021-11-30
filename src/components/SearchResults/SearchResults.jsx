@@ -3,10 +3,11 @@ import './SearchResults.css';
 
 const SearchResults = (props) => {
 
-    const handleClick = (event, id, title) => {
+    const handleClick = (event, id, title, description) => {
         event.preventDefault();
-        props.getVideoIdTitle(id, title);
+        props.getVideoInfo(id, title, description);
         props.getRelatedVideoList(title);
+        props.getVideoComments()
     }
 
     return (
@@ -15,7 +16,9 @@ const SearchResults = (props) => {
                 {props.videos.map(videos => (
                     <span>
                         <div class="relatedVideo">
-                        <input type="image" onClick={(event) => handleClick(event, videos.id.videoId, videos.snippet.title)} src={videos.snippet.thumbnails.medium.url}
+                        <input type="image"
+                            onClick={(event) => handleClick(event, videos.id.videoId, videos.snippet.title, videos.snippet.description)}
+                            src={videos.snippet.thumbnails.medium.url}
                             width={videos.snippet.thumbnails.medium.width}
                             height={videos.snippet.thumbnails.medium.height} />
                             <div class="relatedVideoTitle">

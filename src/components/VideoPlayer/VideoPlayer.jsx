@@ -5,10 +5,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 const VideoPlayer = (props) => {
 
-    let defaultVideoId = 'M7lc1UVf-VE';
-    const[videoId, setVideoId] = useState(defaultVideoId);
+    const[videoId, setVideoId] = useState(props.videoId);
 
-    if (props.videoId !== "" & videoId !== props.videoId){
+    if (videoId !== props.videoId){
         setVideoId(props.videoId);
     }
 
@@ -22,7 +21,7 @@ const VideoPlayer = (props) => {
             </div>
             <div class="videoInfo">
                 <div class="videoTitle">
-                    <h1>Title Here</h1>
+                    <h1>{props.videoTitle}</h1>
                 </div>
                 <div class="videoViews">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
@@ -45,7 +44,7 @@ const VideoPlayer = (props) => {
                 </div>
             </div>
             <div className="videoDescription">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet </p>
+                <p>{props.videoDescription}</p>
             </div>
         </div>
     )
