@@ -19,8 +19,7 @@ const SearchResults = (props) => {
                         <input type="image"
                             onClick={(event) => handleClick(event, videos.id.videoId, videos.snippet.title, videos.snippet.description)}
                             src={videos.snippet.thumbnails.medium.url}
-                            width={videos.snippet.thumbnails.medium.width}
-                            height={videos.snippet.thumbnails.medium.height} />
+                             />
                             <div class="relatedVideoTitle">
                                 {videos.snippet.title}
                             </div>

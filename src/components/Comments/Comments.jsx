@@ -8,15 +8,12 @@ const Comments = (props) => {
         <div className="commentSection">
             <h1>Comments</h1>
             <div className="userComment">
-<<<<<<< HEAD
-=======
                 <h1>Comments</h1>
                     {props.commentDetails.map(comments => (
                         <div>
                             {comments.comment_content}
                         </div>
                     ))}
->>>>>>> 0ae8f03eb25073e11d77b78283a0ae297afe4866
                 <form action="/html/tags/html_form_tag_action.cfm" method="post">
                 <div class="mb-3">
                     <textarea name="comments" id="comments">

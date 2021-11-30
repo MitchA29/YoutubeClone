@@ -1,25 +1,20 @@
 .relatedVideoTitle {
-    max-width: 320px;
-    height: 3em;
-    background-color: rgb(231, 230, 230);
-    border-left: 5px solid rgb(231, 230, 230);
 }
 
 .relatedVideo {
-    padding-left: 3em;
-    padding-bottom: 1em;
+    padding-left: 2em;
 }
 
 .allRelatedVideos {
+    max-width: 40%;
     display: inline-flex;
-    max-width: 1280px;
 }
 
 .searchResults {
     padding-top: 3em;
     padding-bottom: 3em;
     border-top: 1px solid black;
-
+    overflow: auto;
 }
 
 img {

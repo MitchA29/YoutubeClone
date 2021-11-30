@@ -1,12 +1,12 @@
 .videoCommentsRecommended {
-    max-width: 100%;
+    width: 100%;
     display: inline-flex;
 }
 
 .videoComments {
-    max-width: 70%;
+    max-width: 75%;
 }
 
 .recommended {
-    max-width: 30%;
+    max-width: 25%;
 }

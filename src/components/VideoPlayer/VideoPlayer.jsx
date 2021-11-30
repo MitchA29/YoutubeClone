@@ -15,20 +15,13 @@ const VideoPlayer = (props) => {
         
         <div class="videoPlayer">
             <div class="video">
-            <iframe id="ytplayer" type="text/html" width="100%" height="500em" 
+            <iframe id="ytplayer" type="text/html" width="100%" height="700em" 
             src={"https://www.youtube.com/embed/"+(videoId)+"?autoplay=1"}
             frameborder="0"  ></iframe>
             </div>
             <div class="videoInfo">
                 <div class="videoTitle">
                     <h1>{props.videoTitle}</h1>
-                </div>
-                <div class="videoViews">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
-                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
-                    <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
-                    </svg>
-                    <h3>Views</h3>
                 </div>
                 <div class="videoLikes">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-hand-thumbs-up-fill" viewBox="0 0 16 16">

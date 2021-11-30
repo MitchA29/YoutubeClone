@@ -12,16 +12,16 @@ const RecommendedVideos = (props) => {
     return (
         <div className="recommendedVideos">
             <h1>Recommended Videos</h1>
-            <div className="allRelatedVideos">
+            <div className="allRecommendVideos">
                 {props.videos.filter(videos => !videos.id.videoId.includes(props.videoId)).map(videos => (
                     <span>
-                        <div class="relatedVideo">
+                        <div class="recommendedVideo">
                         <input type="image" 
                             onClick={(event) => handleClick(event, videos.id.videoId, videos.snippet.title, videos.snippet.description)}
                             src={videos.snippet.thumbnails.medium.url}
                             width={videos.snippet.thumbnails.medium.width}
                             height={videos.snippet.thumbnails.medium.height} />
-                            <div class="relatedVideoTitle">
+                            <div class="recommendedVideoTitle">
                                 {videos.snippet.title}
                             </div>
                         </div>

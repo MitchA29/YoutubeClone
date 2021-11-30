@@ -4,24 +4,23 @@
     vertical-align: center;
 }
 
-.videoViews {
-    display: inline-flex;
-    padding-left: 0;
-}
-
 .videoLikes {
     display: inline-flex;
-    padding-left: 100px;
     
 }
 
 .videoDislikes {
     display: inline-flex;
-    padding-left: 100px;
+    padding-left: 5%;
+    padding-right: 5%;
     
 }
 
 .videoDescription {
     max-width: 100%;
+    height: 10%;
 }
 
+.videoPlayer {
+    border-bottom: 1px solid black;
+}
