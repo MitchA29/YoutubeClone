@@ -10,13 +10,14 @@
 .logo {
     text-align: left;
     display: inline-flex;
-    padding-left: 10px;
+    padding-left: 2%;
 }
 
 .menu {
-    text-align: right;
-    display: right;
-    padding-left: 96em;
+    vertical-align: center;
+    text-align: center;
+    display: inline-flex;
+    padding-left: 73%;
 }
 
 h1 {

@@ -1,5 +1,4 @@
 .recommendedVideos {
-    text-align: center;
-    padding-left: 10em;
+    background-color: red;
     border-bottom: 1px solid black;
 }
