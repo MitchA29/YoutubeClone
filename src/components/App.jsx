@@ -68,7 +68,7 @@ class App extends Component {
                             videoId={this.videoId}
                             videoTitle={this.videoTitle}
                             videoDescription={this.videoDescription}/> 
-                        <Comments commentDetails={this.state.videoComments}/>
+                        <Comments commentDetails={this.state.videoComments} videoId={this.videoId}/>
                     </div>
                     <div className="recommended">
                         <RecommendedVideos 
