@@ -7,6 +7,8 @@ const Comments = (props) => {
     const [reply,setReply]=useState('')
     const [comment, setComment]=useState('')
 
+    let replies = props.commentReplies
+
     const handleSubmitReply = async(event,id) => {
         event.preventDefault();
         let newReply ={
@@ -14,6 +16,7 @@ const Comments = (props) => {
             reply_content:reply
         }
         await axios.post('http://127.0.0.1:8000/replies/', newReply)
+        props.updateReplies();
        
     }
     const handleChangeReply=(event)=>{
@@ -29,6 +32,7 @@ const Comments = (props) => {
             dislikes:0
         }
         await axios.post('http://127.0.0.1:8000/comments/', newComment)
+        props.updateComments()
        
     }
     const handleChangeComment=(event)=>{
@@ -36,12 +40,18 @@ const Comments = (props) => {
     }
 
     return (
-        <div className="commentSection">
+        <div>
             <h1>Comments</h1>
                 {props.commentDetails.map(comments => (
-                    <div>
-                        {comments.comment_content}
-                        <form name='reply' onSubmit={(e)=>handleSubmitReply(e,comments.id)}>
+                    <div className="comment-section">
+                        <div className="comment">
+                            Comment: {comments.comment_content}
+                        </div>
+                        {replies.filter(replies => replies.comment_id===comments.id).map(replies => (
+                            <div className="reply">
+                            Reply: {replies.reply_content}
+                            </div>))}
+                        <form name='reply' className="reply-box" onSubmit={(e)=>handleSubmitReply(e,comments.id)}>
                             <input name='reply' onChange={handleChangeReply} placeholder='Reply'/>
                             <button type='submit'>Reply</button>
                         </form>
@@ -49,8 +59,8 @@ const Comments = (props) => {
 
                 ))}
 
-            <div class="mb-3">
-                <form name="comment" onSubmit={(e)=>handleSubmitComment(e, props.videoId)}>
+            <div >
+                <form className="comment-box" name="comment" onSubmit={(e)=>handleSubmitComment(e, props.videoId)}>
                     <input name="comment" onChange={handleChangeComment} placeholder='Your Comment Here'/>
                     <button type='submit'>Comment</button>
                 </form>

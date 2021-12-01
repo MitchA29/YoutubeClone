@@ -14,7 +14,8 @@ class App extends Component {
         this.state = {
             resultVideos:[],
             relatedVideos:[],
-            videoComments:[]
+            videoComments:[],
+            commentReplies:[]
     }
         this.videoId = "M7lc1UVf-VE";
         this.videoTitle = "YouTube Developers Live: Embedded Web Player Customization"
@@ -44,6 +45,14 @@ class App extends Component {
         })
     }
 
+    getCommentReplies = async () => {
+        let response = await axios.get('http://127.0.0.1:8000/replies/');
+        console.log(response.data);
+        this.setState({
+            commentReplies: response.data
+        })
+    }
+
     getVideoInfo = (videoId, videoTitle, videoDescription) => {
         this.videoId = videoId;
         this.videoTitle = videoTitle;
@@ -55,6 +64,15 @@ class App extends Component {
     }
 
     componentDidMount() {
+        this.getVideoComments();
+        this.getCommentReplies();
+    }
+
+    updateReplies = () => {
+        this.getCommentReplies();
+    }
+
+    updateComments = () => {
         this.getVideoComments();
     }
 
@@ -68,7 +86,12 @@ class App extends Component {
                             videoId={this.videoId}
                             videoTitle={this.videoTitle}
                             videoDescription={this.videoDescription}/> 
-                        <Comments commentDetails={this.state.videoComments} videoId={this.videoId}/>
+                        <Comments 
+                            commentDetails={this.state.videoComments}
+                            videoId={this.videoId}
+                            commentReplies={this.state.commentReplies}
+                            updateReplies={this.updateReplies}
+                            updateComments={this.updateComments}/>
                     </div>
                     <div className="recommended">
                         <RecommendedVideos 
