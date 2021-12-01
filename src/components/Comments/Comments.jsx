@@ -15,7 +15,8 @@ const Comments = (props) => {
             comment_id:id,
             reply_content:reply
         }
-        await axios.post('http://127.0.0.1:8000/replies/', newReply)
+        let response = await axios.post('http://127.0.0.1:8000/replies/', newReply)
+        console.log(response.data);
         props.updateReplies();
        
     }
@@ -31,7 +32,8 @@ const Comments = (props) => {
             likes:0,
             dislikes:0
         }
-        await axios.post('http://127.0.0.1:8000/comments/', newComment)
+        let response = await axios.post('http://127.0.0.1:8000/comments/', newComment)
+        console.log(response.data);
         props.updateComments()
        
     }
@@ -47,7 +49,8 @@ const Comments = (props) => {
             comment_content:content,
             likes:plusLikes,
         }
-        await axios.put('http://127.0.0.1:8000/comments/' + (id) + '/', likesUpdate)
+        let response = await axios.put('http://127.0.0.1:8000/comments/' + (id) + '/', likesUpdate)
+        console.log(response.data);
         props.updateComments();
        }
 
@@ -59,7 +62,8 @@ const Comments = (props) => {
             comment_content:content,
             dislikes:plusDislikes
         }
-        await axios.put('http://127.0.0.1:8000/comments/' + (id) + '/', dislikesUpdate)
+        let response = await axios.put('http://127.0.0.1:8000/comments/' + (id) + '/', dislikesUpdate)
+        console.log(response.data);
         props.updateComments();
        }
 
