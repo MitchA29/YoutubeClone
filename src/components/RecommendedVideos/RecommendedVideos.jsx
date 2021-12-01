@@ -11,7 +11,7 @@ const RecommendedVideos = (props) => {
     
     return (
         <div className="recommendedVideos">
-            <h1>Recommended Videos</h1>
+            <h1>Related Videos</h1>
             <div className="allRecommendVideos">
                 {props.videos.filter(videos => !videos.id.videoId.includes(props.videoId)).map(videos => (
                     <span>
