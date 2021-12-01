@@ -1,10 +1,11 @@
 .comment {
-    font-size: 16pt;
+    font-size: 20pt;
 }
 
 .reply {
-    font-size:12pt;
+    font-size:16pt;
     text-indent: 2em;
+    background-color: rgb(233, 231, 231);
 }
 
 .comment-section {
