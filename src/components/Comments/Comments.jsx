@@ -39,13 +39,43 @@ const Comments = (props) => {
         setComment(event.target.value)
     }
 
+    const handleClickLikes = async(event, id, videoId, content, likes, dislikes) => {
+        event.preventDefault();
+        let plusLikes=(likes+1);
+        let likesUpdate ={
+            video_id:videoId,
+            comment_content:content,
+            likes:plusLikes,
+        }
+        await axios.put('http://127.0.0.1:8000/comments/' + (id) + '/', likesUpdate)
+        props.updateComments();
+       }
+
+       const handleClickDislikes = async(event, id, videoId, content, likes, dislikes) => {
+        event.preventDefault();
+        let plusDislikes=dislikes+1;
+        let dislikesUpdate ={
+            video_id:videoId,
+            comment_content:content,
+            dislikes:plusDislikes
+        }
+        await axios.put('http://127.0.0.1:8000/comments/' + (id) + '/', dislikesUpdate)
+        props.updateComments();
+       }
+
     return (
         <div>
             <h1>Comments</h1>
                 {props.commentDetails.map(comments => (
                     <div className="comment-section">
                         <div className="comment">
-                            Comment: {comments.comment_content}
+                            Comment: {comments.comment_content} 
+                            <button className="comment-button" 
+                            onClick={(e)=>handleClickLikes(e,comments.id,comments.video_id,comments.comment_content,comments.likes, comments.dislikes)}
+                            >likes:</button> {comments.likes}
+                            <button className="comment-button"
+                            onClick={(e)=>handleClickDislikes(e,comments.id,comments.video_id,comments.comment_content,comments.likes, comments.dislikes)}
+                            >dislikes:</button> {comments.dislikes}
                         </div>
                         {replies.filter(replies => replies.comment_id===comments.id).map(replies => (
                             <div className="reply">
