@@ -64,6 +64,7 @@ class App extends Component {
     }
 
     componentDidMount() {
+        this.getRelatedVideoList(this.videoTitle);
         this.getVideoComments();
         this.getCommentReplies();
     }
